@@ -2,7 +2,7 @@
   const app     = express()
 
 //       ROUTES LIST
-const logIn = require('./src/routes/login')
+const logIn = require('./routes/login')
 
 //       MIDDLE WARE
   app.use('/',  logIn)
