@@ -1,10 +1,10 @@
+import { Login } from "./app-type"
 
 export namespace UserLogin  {
   export const apiName  : string  = 'login'
 
   export type params = {
-    userName  : string
-    password  : string
+    userLogin : Login
   }
 
   export type retval = {

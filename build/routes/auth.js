@@ -7,11 +7,10 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 router.post('/API/login', (req, res) => {
     try {
-        console.log(req.body);
         const params = req.body;
-        console.log(params);
         res.cookie('asd', 'sad');
-        res.status(200);
+        const retval = {};
+        res.status(200).send(retval);
     }
     catch (err) {
         throw new Error(err);
