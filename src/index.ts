@@ -3,14 +3,14 @@ import path from 'path'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-// const routeList     = require('./route-list')
+const routeList     = require('./route-list')
 // import socket from 'socket.io'
 // const conn          = require('./src/db-connection/mysql-db')
 
 const app = express()
       app.use(bodyParser.json())
       app.use(cors())
-      // app.use(routeList)
+      app.use(routeList)
       app.use(cookieParser())
 
       app.use(function (req, res, next) {
