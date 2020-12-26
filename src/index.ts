@@ -8,9 +8,9 @@ import routeList    from './router-list'
 
 const app = express()
       app.use(bodyParser.json())
+      app.use(cookieParser())
       app.use(cors())
       app.use(routeList)
-      app.use(cookieParser())
        
       app.use(function (req, res, next) {
         res.header("Access-Control-Allow-Origin", "*")
@@ -20,7 +20,6 @@ const app = express()
         )
         next()
       })
-      
 
       app.use(express.static(path.join(__dirname, "./test-views")))
 

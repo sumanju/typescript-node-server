@@ -8,10 +8,11 @@ router.post('/API/login', (req, res) => {
     const params  : UserLogin.params  = {
       userLogin   : req.body
     }
-    const retval  : UserLogin.retval =  {}
 
-    res.cookie('suman', 'mandal')
+    const retval  : UserLogin.retval =  {}
+    res.cookie('SESSIONID', params.userLogin.userName)
     res.status(200).send(retval)
+
   } catch(err) {
     throw new Error(err)
   }

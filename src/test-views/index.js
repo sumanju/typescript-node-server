@@ -1,11 +1,11 @@
 
-function apiCall(data)  {
+function apiAuth(data)  {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({  
       password  : data,
-      userNam  : data
+      userName  : data
     })
   }
 
@@ -16,9 +16,29 @@ function apiCall(data)  {
   })
 }
 
+function apiBook(data)  {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' }
+  }
+
+  fetch('http://localhost:4000/API/book', requestOptions)
+  .then(response => response.json())
+  .then(data => {
+    if (!data.book) return
+    document.getElementById('book').innerHTML = `${data.book.bookId} - ${data.book.bookName}`
+  })
+}
+
 
 function call()  {
   let data  =  document.getElementById('name').value
   console.log(data)
-  apiCall(String(data))
+  apiAuth(String(data))
 }
+
+function myBooks()  {
+  apiBook()
+}
+
+
