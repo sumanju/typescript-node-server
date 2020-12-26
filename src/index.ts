@@ -4,6 +4,7 @@ import bodyParser   from 'body-parser'
 import cors         from 'cors'
 import cookieParser from 'cookie-parser'
 import routeList    from './router-list'
+import jwt          from 'jsonwebtoken'
 
 
 const app = express()

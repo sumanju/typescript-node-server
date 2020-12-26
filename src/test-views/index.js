@@ -12,7 +12,6 @@ function apiAuth(data)  {
   fetch('http://localhost:4000/API/login', requestOptions)
   .then(response => response.json())
   .then(data => {
-    alert(`${data.status} => ${data.data}`)
   })
 }
 
@@ -25,7 +24,10 @@ function apiBook(data)  {
   fetch('http://localhost:4000/API/book', requestOptions)
   .then(response => response.json())
   .then(data => {
-    if (!data.book) return
+    if (!data.book) {
+      document.getElementById('book').innerHTML = 'No Record'
+      return
+    }
     document.getElementById('book').innerHTML = `${data.book.bookId} - ${data.book.bookName}`
   })
 }

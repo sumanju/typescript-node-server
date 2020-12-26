@@ -2,6 +2,7 @@ import express      from 'express'
 import { Book, 
          Bookdtl 
        }            from '../modal-interface'
+import jwt          from 'jsonwebtoken'
 
 const bookData  : Bookdtl[] = [
   {
@@ -22,8 +23,10 @@ const router  = express.Router()
 
 router.post('/API/book', (req, res) => {
   try {
-    const resp  = bookData.filter((ele) =>  {
-      return ele.bookId ==  req.cookies.SESSIONID
+    const decode  = jwt.verify(req.cookies.SESSIONID, 'shh') 
+
+    const resp    = bookData.filter((ele) =>  {
+      return ele.bookId ==  decode
     })
 
     const retval  : Book.retval =  {
