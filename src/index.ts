@@ -20,12 +20,13 @@ const app = express()
         )
         next()
       })
+      
 
-  app.get('/watch', function (req, res) {
-    res.cookie('asqwed', 'asd')
-    console.log(req.headers)
-    res.send(req.cookies )
-  })
+      app.use(express.static(path.join(__dirname, "./test-views")))
+
+      app.get('*', function(req,res) {
+        res.sendFile(path.join(__dirname,'/test-views/index.html'))
+      })
 
 const port = process.env.PORT || 4000
 
